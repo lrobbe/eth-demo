@@ -1,0 +1,55 @@
+<html>
+	<head><title>Ethereum Demo application</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<h1>Ethereum Demo application</h1>
+		<div id="content">
+			<table style="width: 100%">
+				<tr>
+					<td class="addtable" style="width: 50%">
+						<textarea id="postText"></textarea>
+					</td>
+					<td rowspan="4" valign="top">
+						<table id="documents">
+							<colgroup>
+								<col style="width:15%">
+								<col style="width:70%">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>Reference</th>
+									<th>Hash</th>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table>
+							<tr class="smalltext"><td>Document reference</td><td id="documentId">Not submitted</td></tr>
+							<tr class="smalltext"><td>Realtime calculated hash</td><td id="calculatedHash"></td></tr>
+							<tr class="smalltext"><td>Hash in database</td><td id="hashInDB">Not submitted</td></tr>
+							<tr class="smalltext"><td>Hash in blockchain</td><td id="hashInEth">Not submitted</td></tr>
+							<tr class="smalltext"><td>Status</td><td id="matchStatus">Unknown</td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="submit" value="Submit" id="submitButton" class="button">
+						<input type="submit" value="Clear" id="clearButton" class="button">
+					</td>
+				</tr>
+				<tr>
+				<td style="height: 100%"></td>
+				</tr>
+			</table>
+
+		</div>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-sha3/0.8.0/sha3.min.js"></script>
+		<script src="scripts.js"></script>
+	</body>
+</html>

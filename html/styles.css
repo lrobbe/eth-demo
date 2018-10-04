@@ -1,0 +1,107 @@
+.loader {
+    border: 3px solid #f3f3f3; /* Light grey */
+    border-top: 3px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    animation: spin 2s linear infinite;
+	margin: 0px 0px 0px 0px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.button {
+	border : solid 0px #0066cc;
+	font-size : 16px;
+	color : #ffffff;
+	padding : 5px 18px;
+	background-color : #0066cc;
+	cursor:pointer;
+}
+
+.button:hover {
+	background-color: #0073e6;
+}
+
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+.addtable {
+	margin: 0 auto;
+	width: 90%;
+}
+
+.smalltext {
+	font-size: small;
+}
+
+.clickable {
+	text-decoration: underline;
+	color: blue;
+}
+
+.match {
+	font-weight: bold;
+	color: green;
+}
+
+.mismatch {
+	font-weight: bold;
+	color: red;	
+}
+
+#postText {
+	margin: 0 auto;
+}
+
+#textHash {
+	float:right;
+	font-size: small;
+}
+
+#calculatedHash {
+	font-size: small;
+}
+
+textarea {
+	width:		100%;
+	height: 	10em;
+}
+
+#content {
+	width: 90% ;
+	margin-left: auto ;
+	margin-right: auto;
+	margin-bottom: 10px;
+	font-family:verdana, sans-serif;
+	font-size:14px;
+}
+
+#documents {
+	font-weight:normal;
+	color:#000000;
+	font-size:10px;
+	text-align:left;
+	font-family:verdana, sans-serif;
+	width: 90%;
+	margin: 0 auto;
+}
+
+#documents th {
+	background-color: #0066cc;
+	color: white;
+	padding: 8px;
+	border-bottom: 1px solid #ddd;
+}
+
+#documents td {
+	padding: 8px;
+	border-color: #666666;
+	background-color: #ffffff;
+	border-bottom: 1px solid #ddd;
+}
