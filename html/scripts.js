@@ -6,6 +6,9 @@ $( document ).ready(function() {
 			if($('#calculatedHash').html() == $('#hashInDB').html() && $('#calculatedHash').html() == $('#hashInEth').html()) {
 				$('#matchStatus').html("<span class=\"match\">Match - Document is valid.</span>");
 			}
+			else if($('#hashInDB').html() == "processing") {
+				$('#matchStatus').html("<span>Unknown - Document is not yet processed.</span>");
+			}
 			else {
 				$('#matchStatus').html("<span class=\"mismatch\">Mismatch - Document has been tampered with.</span>");
 			}
@@ -27,17 +30,33 @@ $( document ).ready(function() {
 			"text" : $('#postText').val()
 		};
 		
+		// Clear the text already
+		clearDoc();	
+		
 		$.ajax({
 			url: API_ENDPOINT,
 			type: 'POST',
 			data:  JSON.stringify(inputData)  ,
 			contentType: 'application/json; charset=utf-8',
 			success: function (response) {
-				clearDoc();	
 				getAllDocs();
 			},
 			error: function () {
-				alert("error");
+				console.log("Error submitting. Retry.");
+				$.ajax({
+					url: API_ENDPOINT,
+					type: 'POST',
+					data:  JSON.stringify(inputData)  ,
+					contentType: 'application/json; charset=utf-8',
+					success: function (response) {
+						getAllDocs();
+					},
+					error: function () {
+						console.log("Error submitting. Process is dead.");
+						
+						
+					}
+				});
 			}
 		});
 	});
@@ -70,7 +89,7 @@ $( document ).ready(function() {
 				});
 			},
 			error: function () {
-				alert("error");
+				console.log("Error fetching docs.");
 			}
 		});
 	}
@@ -105,7 +124,7 @@ $( document ).ready(function() {
 				$('#calculatedHash').html(hash);
 			},
 			error: function () {
-				alert("error");
+				console.log("Error fetching doc " + id);
 			}
 		});
 	}
@@ -145,4 +164,3 @@ $( document ).ready(function() {
 	var hash = sha3_256($('#postText').val());
 	$('#calculatedHash').html(hash);
 });
-

@@ -156,7 +156,7 @@ public class Process implements RequestHandler<SNSEvent, Object> {
 				StringWriter sw = new StringWriter();
 				PrintWriter pw = new PrintWriter(sw);
 				e.printStackTrace(pw);
-				String sStackTrace = sw.toString(); // stack trace as a string
+				String sStackTrace = sw.toString(); 
 				System.out.println(sStackTrace);
 
 				return null;
