@@ -32,6 +32,7 @@ $( document ).ready(function() {
 		
 		// Clear the text already
 		clearDoc();	
+		$("#submitting").css('display', 'block');
 		
 		$.ajax({
 			url: API_ENDPOINT,
@@ -40,6 +41,7 @@ $( document ).ready(function() {
 			contentType: 'application/json; charset=utf-8',
 			success: function (response) {
 				getAllDocs();
+				$("#submitting").css('display', 'none');
 			},
 			error: function () {
 				console.log("Error submitting. Retry.");
@@ -50,11 +52,12 @@ $( document ).ready(function() {
 					contentType: 'application/json; charset=utf-8',
 					success: function (response) {
 						getAllDocs();
+						$("#submitting").css('display', 'none');
 					},
 					error: function () {
 						console.log("Error submitting. Process is dead.");
 						
-						
+						$("#submitting").css('display', 'none');
 					}
 				});
 			}
@@ -164,3 +167,4 @@ $( document ).ready(function() {
 	var hash = sha3_256($('#postText').val());
 	$('#calculatedHash').html(hash);
 });
+
